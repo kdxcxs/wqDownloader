@@ -26,7 +26,7 @@ def save(title):
                                              'window.downloaderRefreshClocks.forEach((id)=>{window.clearInterval(id)});'+ \
                                              'window.downloaderRefreshClocks=[];') # 发送指令使网页滚动到本书的未下载中第一页的位置来引发文泉学堂阅读器获取列表第一页图片,清空downloaderRefreshClocks,因为下载已经开始不用再刷新
                 elif title not in titlesDone: # 本书已下载完成
-                    print('-'*20+page+' Done'+'-'*20)
+                    print('-'*20+page+' Done.Downloaded '+str(pagesTotal[title])+' pages.'+'-'*20)
                     titlesDone.append(title)
                     response = make_response('alert(\'Done\')')
             else: # 检测到加载中图片,发送倒计时刷新指令
