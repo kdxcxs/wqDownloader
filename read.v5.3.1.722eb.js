@@ -1952,6 +1952,9 @@
 				},
 				pageLoaded: function(e) {
 					var t = this;
+					/* wqDownloader */
+					window.downloaderRefreshClocks=[];/* 记录所有刷新计时器的setinterval */
+					/* wqDownloader */
 					e.target && this.getImageData(e.target,
 					function(e, a) {
 						var i = new DataView(e),
