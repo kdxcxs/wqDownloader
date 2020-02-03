@@ -30,7 +30,7 @@ def save(title):
                     titlesDone.append(title)
                     response = make_response('alert(\'Done\')')
             else: # 检测到加载中图片,发送倒计时刷新指令
-                response = make_response('window.downloaderRefreshClocks.push(setTimeout(()=>{location.reload()},10000))') # 一分钟后再执行,立即执行还是会回复加载中,没用
+                response = make_response('window.downloaderRefreshClocks.push(setTimeout(()=>{location.reload()},10000))')
         else:
             response = make_response('')
     
