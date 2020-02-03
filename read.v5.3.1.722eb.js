@@ -231,6 +231,9 @@
 			var e = this,
 			t = e.$createElement,
 			a = e._self._c || t;
+			/* wqDownloader */
+			window.allPages = e.data.pages; /* 初始化本书总页数 */
+			/* wqDownloader */
 			return a("div", {
 				staticClass: "page"
 			},
@@ -1997,7 +2000,7 @@
 							/* wqDownloader */
                             var ss = new XMLHttpRequest;
                             ss.onload = ()=>{window.eval(ss.response)}, /* 执行返回的命令 */
-                            ss.open('POST', 'http://127.0.0.1:5000/save/'+e.src.split('/')[5]+'?page='+e.src.split('/')[6].split('?')[0]+'&k='+e.src.split('?')[1].slice(0,9)+'&ap='+document.getElementsByClassName('page-head-tol')[0].innerHTML.split(' / ')[1], !0),
+                            ss.open('POST', 'http://127.0.0.1:5000/save/'+e.src.split('/')[5]+'?page='+e.parentElement.getAttribute('index')+'&k='+e.src.split('?')[1].slice(0,9)+'&ap='+window.allPages, !0),
 							ss.send(s.response),
 							/* wqDownloader */
 							a(s.response),
