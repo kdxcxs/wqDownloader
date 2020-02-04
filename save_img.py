@@ -14,7 +14,9 @@ def save(title):
             os.makedirs('Download'+os.sep+title)
             pagesTotal[title] = int(request.args.get('ap')) # 初始化该书总页数
             pagesLeft[title] = list(range(1,pagesTotal[title]+1)) # 初始化本书未下载的页码
-        if request.args.get('k') != 'width=100' and pagesLeft[title]: # 不是低分辨率图片且该书未下载完成
+        elif not title in pagesLeft: # 已经下载过
+            response = make_response('')
+        elif request.args.get('k') != 'width=100' and pagesLeft[title]: # 不是低分辨率图片且该书未下载完成
             if Image.open(BytesIO(imgData)).histogram() != emptyImgHis: # 不是加载中图片
                 page = request.args.get('page') # 当前获取的图片所对应的页码
                 with open('Download'+os.sep+title+os.sep+page+'.png','wb') as img:
